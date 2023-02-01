@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css-mimi-project\mimi-project.css">
+</head>
+<body>
+    <div class="section">
+        <h1 >IS YOUR BODY PERFECT ? </h1>
+        <div class="con">
+            <div class="len" > 
+                <label>YOUR LENGTH</label>
+                <input type="text" name="name" />
+            </div>
+            <div class="wei"> 
+                <label>YOUR WEIGHT</label>
+                <input type="text" name="name" />
+            </div>
+        </div>
+        <button>SABMIT</button>
+    </div>
+    <script>
+        const lengthInput = document.querySelector('.len input');
+        const weightInput = document.querySelector('.wei input');
+        const message = document.querySelector('h1');
+        const button = document.querySelector('button');
+        
+        button.addEventListener('click', () => {
+            const length = parseFloat(lengthInput.value);
+            const weight = parseFloat(weightInput.value);
+            
+            if (length >= 1 && length <= 3 && weight >= 30 && weight <= 300) {
+                if (length === weight) {
+                    message.textContent = 'Your body is perfect';
+                } else if (length > weight) {
+                    message.textContent = 'You need to lose some weight';
+                } else {
+                    message.textContent = 'You need to gain some weight';
+                }
+            } else {
+                message.textContent = 'Invalid input, please enter a valid length between 1m and 3m and a valid weight between 30kg and 300kg';
+            }
+        });
+    </script>
+    
+</body>
+</html>
